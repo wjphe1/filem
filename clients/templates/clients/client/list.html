@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if category %}
+        {{ category.title }} clients
+    {% else %}
+        All clients
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<h1>
+    {% if category %}
+        {{ category.title }} clients
+    {% else %}
+        All clients
+    {% endif %}
+</h1>
+<div class="contents">
+    <h3>Categories</h3>
+    <ul id="modules">
+        <li {% if not category %}class="selected"{% endif %}>
+            <a href="{% url "client_list" %}">All</a>
+        </li>
+        {% for s in categories %}
+            <li {% if category == s %}class="selected"{% endif %}>
+                <a href="{% url "client_list_category" s.slug %}">
+                    {{ s.title }}
+                    <br><span>{{ s.total_clients }} clients</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="module">
+    {% for client in clients %}
+        {% with category=client.category %}
+            <h3><a href="{% url "client_detail" client.slug %}">
+            {{ client.title }}</a></h3>
+            <p>
+                <a href="{% url "client_list_category" category.slug %}">
+                {{ category }}</a>.
+                {{ client.total_modules }} modules.
+                Instructor: {{ client.owner.get_full_name }}
+            </p>
+        {% endwith %}
+    {% endfor %}
+</div>
+{% endblock %}

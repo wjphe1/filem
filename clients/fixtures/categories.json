@@ -1,0 +1,26 @@
+[
+{
+  "model": "clients.category",
+  "pk": 1,
+  "fields": {
+    "title": "Housing",
+    "slug": "housing"
+  }
+},
+{
+  "model": "clients.category",
+  "pk": 2,
+  "fields": {
+    "title": "Divorce",
+    "slug": "divorce"
+  }
+},
+{
+  "model": "clients.category",
+  "pk": 3,
+  "fields": {
+    "title": "Others",
+    "slug": "others"
+  }
+}
+]

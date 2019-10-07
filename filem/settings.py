@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'students.apps.StudentsConfig',
-    'courses.apps.CoursesConfig',
+    'clients.apps.ClientsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,6 +123,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+FIXTURE_DIRS = (
+   '/clients/fixtures/categories.json',
+)
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'

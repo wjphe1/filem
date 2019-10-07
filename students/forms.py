@@ -1,13 +1,13 @@
 from django import forms
-from courses.models import Course
+from clients.models import Client
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import Group
 
-class CourseEnrollForm(forms.Form):
-    course = forms.ModelChoiceField(queryset=Course.objects.all(), widget=forms.HiddenInput)
+class ClientEnrollForm(forms.Form):
+    client = forms.ModelChoiceField(queryset=Client.objects.all(), widget=forms.HiddenInput)
 
 
 class CustomUserCreationForm(forms.Form):

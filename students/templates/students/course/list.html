@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 
-{% block title %}My courses{% endblock %}
+{% block title %}My clients{% endblock %}
 
 {% block content %}
-    <h1>My courses</h1>
+    <h1>My clients</h1>
 
     <div class="module">
-        {% for course in object_list %}
-            <div class="course-info">
-                <h3>{{ course.title }}</h3>
-                <p><a href="{% url "student_course_detail" course.id %}">
+        {% for client in object_list %}
+            <div class="client-info">
+                <h3>{{ client.title }}</h3>
+                <p><a href="{% url "student_client_detail" client.id %}">
                 Access contents</a></p>
             </div>
         {% empty %}
             <p>
                 You have no available documents yet. Please contact your agency for more information.
-                <!-- <a href="{% url "course_list" %}">Browse courses</a>  -->
-                <!-- to enroll in a course.  -->
+                <!-- <a href="{% url "client_list" %}">Browse clients</a>  -->
+                <!-- to enroll in a client.  -->
             </p>
         {% endfor %}
     </div>

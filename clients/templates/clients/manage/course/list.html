@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}My clients{% endblock %}
+
+{% block content %}
+  <h1>My clients</h1>
+
+  <div class="module">
+    {% for client in object_list %}
+      <div class="client-info">
+        <h3>{{ client.title }}</h3>
+        <p>
+          <a href="{% url "client_edit" client.id %}">Edit</a>
+          <a href="{% url "client_delete" client.id %}">Delete</a>
+          <a href="{% url "client_module_update" client.id %}">Edit modules</a>
+          {% if client.modules.count > 0 %}
+          <a href="{% url "module_content_list" client.modules.first.id %}">Manage contents</a>
+          {% endif %}
+        </p>
+      </div>
+    {% empty %}
+      <p>You haven't created any clients yet.</p>
+    {% endfor %}
+    <p>
+      <a href="{% url "client_create" %}" class="button">Create new client</a>
+    </p>
+  </div>
+{% endblock %}
